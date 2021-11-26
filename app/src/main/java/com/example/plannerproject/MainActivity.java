@@ -22,6 +22,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void openSubject(View view){
         Intent intent = new Intent(this, SubjectActivity.class);
+        int i = view.getId();
         startActivity(intent);
     }
+
+    public void settingSubject(View view){
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
+    }
+
+    public void refreshTimeTable(View view){
+
+    }
+
 }

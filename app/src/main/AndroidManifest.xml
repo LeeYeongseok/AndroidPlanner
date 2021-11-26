@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Plannerproject">
         <activity
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
             android:name=".SubjectActivity"
             android:exported="true" />
         <activity

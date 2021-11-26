@@ -708,24 +708,26 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="시간표"
-                android:textStyle="bold"/>
+                android:onClick="refreshTimeTable"
+                android:text="시간표 새로고침"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/assignment_checklist"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="과제 체크리스트"
-                android:textStyle="bold"/>
+                android:text="일정"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/todolist_checklist"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="주기적 체크리스트"
-                android:textStyle="bold"/>
+                android:onClick="settingSubject"
+                android:text="과목 추가"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

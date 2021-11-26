@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Plannerproject</string>
+    <string-array name="days">
+        <item>월요일</item>
+        <item>화요일</item>
+        <item>수요일</item>
+        <item>목요일</item>
+        <item>금요일</item>
+    </string-array>
+    <string-array name="times">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>1시</item>
+    </string-array>
 </resources>
