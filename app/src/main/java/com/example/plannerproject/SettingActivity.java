@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
@@ -24,14 +25,9 @@ import java.util.ArrayList;
 public class SettingActivity extends AppCompatActivity {
 
     private ActivitySettingBinding binding;
-    String[] day = {"월요일", "화요일", "수요일", "목요일", "금요일"};
-    String[] times = {"1교시", "2교시", "3교시", "4교시", "5교시", "6교시", "7교시", "8교시", "9교시", "10교시"};
 
-    public static final String Subject_DB = "Subject_DB";
     public static final String Subject_Table = "SubjectTable";
-    public static ArrayList<String> attention = new ArrayList<String>();
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,16 +44,19 @@ public class SettingActivity extends AppCompatActivity {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE table if not exists SubjectTable (subject VARCHAR(45), professor VARCHAR(45));");
-            db.execSQL("CREATE table if not exists timeTable (subject VARCHAR(45), day VARCHAR(45), time INT);");
-            Toast.makeText(getApplicationContext(),"Initialized a",Toast.LENGTH_LONG).show();
+            db.setForeignKeyConstraintsEnabled(true);
+            db.execSQL("CREATE table if not exists SubjectTable (subject VARCHAR(45) primary key, professor VARCHAR(45));");
+            db.execSQL("CREATE table if not exists timeTable (subject VARCHAR(45), day VARCHAR(45), time INT, constraint pk primary key (day, time));");
+
+            //Toast.makeText(getApplicationContext(),"Initialized a",Toast.LENGTH_LONG).show();
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-//            db.execSQL("drop table if exists "+ Subject_Table);
+            //db.execSQL("drop table if exists SubjectTable");
+            //db.execSQL("drop table if exists timeTable");
             onCreate(db);
-            Toast.makeText(getApplicationContext(),"Initialized b",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"Initialized b",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -66,23 +65,52 @@ public class SettingActivity extends AppCompatActivity {
         SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
         myHelper.onUpgrade(sqlDB,1,2);;
         sqlDB.close();
-        Toast.makeText(getApplicationContext(),"Initialized",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"Initialized",Toast.LENGTH_LONG).show();
     }
 
     public void addNewSubject(View view){
-        myDBHelper myHelper = new myDBHelper(this);
-        SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
-        sqlDB.execSQL("insert into "+Subject_Table+ " values ('"+ binding.addSubjectName.getText().toString() + "', '" + binding.addProfessorName.getText().toString()+"');" );
-        sqlDB.close();
-        Toast.makeText(getApplicationContext(),"new subject Inserted", Toast.LENGTH_LONG).show();
+        try {
+            myDBHelper myHelper = new myDBHelper(this);
+            SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
+            String subjectName = binding.addSubjectName.getText().toString();
+            String professorName = binding.addProfessorName.getText().toString();
+            if(subjectName.length()<1){
+                Toast.makeText(getApplicationContext(), "과목 이름을 입력하세요", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(professorName.length()<1){
+                Toast.makeText(getApplicationContext(), "교수님 이름을 입력하세요", Toast.LENGTH_LONG).show();
+                return;
+            }
+            sqlDB.execSQL("insert into SubjectTable values ('" + subjectName + "', '" + professorName + "');");
+            sqlDB.close();
+            Toast.makeText(getApplicationContext(), "new subject Inserted", Toast.LENGTH_LONG).show();
+        }
+        catch(SQLiteException e)
+        {
+            Toast.makeText(this, "이미 있는 과목 이름입니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     public void addTimeSubject(View view){
-        myDBHelper myHelper = new myDBHelper(this);
-        SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
-        sqlDB.execSQL("insert into timeTable values ('"+ binding.addTimeSubjectName.getText().toString() + "', '" + binding.subjectDaySpinner.getSelectedItem().toString()+ "', " + binding.subjectTimeSpinner.getSelectedItem().toString()+");" );
-        sqlDB.close();
-        Toast.makeText(getApplicationContext(),"new Time Inserted", Toast.LENGTH_LONG).show();
+        try {
+            myDBHelper myHelper = new myDBHelper(this);
+            SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
+            String subjectName = binding.addTimeSubjectName.getText().toString();
+            if(subjectName.length()<1){
+                Toast.makeText(getApplicationContext(), "과목 이름을 입력하세요", Toast.LENGTH_LONG).show();
+                return;
+            }
+            sqlDB.execSQL("insert into timeTable values ('" + subjectName + "', '" + binding.subjectDaySpinner.getSelectedItem().toString() + "', " + binding.subjectTimeSpinner.getSelectedItem().toString() + ");");
+            sqlDB.close();
+            Toast.makeText(getApplicationContext(), "new Time Inserted", Toast.LENGTH_LONG).show();
+        }
+        catch(SQLiteException e)
+        {
+            Toast.makeText(this, "해당 시간에 이미 과목이 있습니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     public void searchDB(View view){
@@ -100,7 +128,7 @@ public class SettingActivity extends AppCompatActivity {
         cursor2 = sqlDB.rawQuery("select * from timeTable", null);
         while(cursor2.moveToNext()){
             string1 += cursor2.getString(0)+ System.lineSeparator();
-            string2 += cursor2.getString(1);
+            string2 += cursor2.getString(1)+ " - ";
             string2 += cursor2.getString(2)+ System.lineSeparator();
         }
         binding.temp1.setText(string1);
@@ -112,13 +140,45 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     public void deleteSubject(View view){
-        myDBHelper myHelper = new myDBHelper(this);
-        SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
-        sqlDB.execSQL("delete from "+Subject_Table+ " where subject = '" + binding.deleteSubjectName.getText().toString() +"'; " );
-        sqlDB.execSQL("delete from timeTable where subject = '" + binding.deleteSubjectName.getText().toString() +"'; " );
-        sqlDB.close();
-        Toast.makeText(getApplicationContext(),"delete "+binding.deleteSubjectName.getText().toString(), Toast.LENGTH_LONG).show();
+        try {
+            myDBHelper myHelper = new myDBHelper(this);
+            SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
+            
+            if(binding.deleteSubjectName.getText().toString().length()<1){
+                Toast.makeText(getApplicationContext(), "삭제할 과목 이름을 입력해주세요", Toast.LENGTH_LONG).show();
+                return;
+            }
+            
+            sqlDB.execSQL("delete from SubjectTable where subject = '" + binding.deleteSubjectName.getText().toString() + "'; ");
+            sqlDB.execSQL("delete from timeTable where subject = '" + binding.deleteSubjectName.getText().toString() + "'; ");
+            sqlDB.execSQL("delete from todolist where subject = '" + binding.deleteSubjectName.getText().toString() + "'; ");
+            sqlDB.close();
+            Toast.makeText(getApplicationContext(), "삭제: " + binding.deleteSubjectName.getText().toString(), Toast.LENGTH_LONG).show();
+        }
+        catch(SQLiteException e)
+        {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
+
+    public void deleteTimeTable(View view){
+        try {
+            myDBHelper myHelper = new myDBHelper(this);
+            SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
+            String day = binding.deleteSubjectDaySpinner.getSelectedItem().toString();
+            String time = binding.deleteSubjectTimeSpinner.getSelectedItem().toString();
+            sqlDB.execSQL("delete from timeTable where day = '" + day + "' and time = " + time + ";");
+            sqlDB.close();
+            //Toast.makeText(getApplicationContext(), "삭제: " + binding.deleteSubjectName.getText().toString(), Toast.LENGTH_LONG).show();
+        }
+        catch(SQLiteException e)
+        {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            return;
+        }
+    }
+
 
 
 

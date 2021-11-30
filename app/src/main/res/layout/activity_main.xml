@@ -99,6 +99,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -108,6 +109,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -117,15 +120,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th1"
+                    android:id="@+id/h1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -135,6 +142,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -161,6 +170,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -170,6 +181,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -179,15 +192,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th2"
+                    android:id="@+id/h2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -197,6 +214,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -223,6 +242,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -232,6 +253,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -241,15 +264,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th3"
+                    android:id="@+id/h3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -259,6 +286,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -285,6 +314,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -294,6 +325,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -303,15 +336,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th4"
+                    android:id="@+id/h4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -321,6 +358,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -347,6 +386,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -356,6 +397,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -365,15 +408,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th5"
+                    android:id="@+id/h5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -383,6 +430,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -409,6 +458,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -418,6 +469,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -427,15 +480,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th6"
+                    android:id="@+id/h6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -445,6 +502,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -471,6 +530,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -480,6 +541,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -489,15 +552,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th7"
+                    android:id="@+id/h7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -507,6 +574,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -533,6 +602,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -542,6 +613,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -551,15 +624,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th8"
+                    android:id="@+id/h8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -569,6 +646,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -595,6 +674,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -604,6 +685,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -613,15 +696,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th9"
+                    android:id="@+id/h9"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -631,6 +718,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
             <TableRow
@@ -657,6 +746,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -666,6 +757,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -675,15 +768,19 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
-                    android:id="@+id/th10"
+                    android:id="@+id/h10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <Button
@@ -693,6 +790,8 @@
                     android:layout_weight="1"
                     android:backgroundTint="#ffffff"
                     android:text=""
+                    android:onClick="openSubject"
+                    android:textAllCaps="false"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
         </TableLayout>
@@ -717,6 +816,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="todolist"
                 android:text="일정"
                 android:textStyle="bold" />
 
@@ -726,7 +826,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="settingSubject"
-                android:text="과목 추가"
+                android:text="과목 설정"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
