@@ -77,7 +77,7 @@ public class NormaltodolistActivity extends AppCompatActivity {
             }
 
             String datetime = year+"-"+month+"-"+day;
-            sqlDB.execSQL("insert into todolist values ( '일반 일정' , '" + subjectName + "', '" + datetime + "');");
+            sqlDB.execSQL("insert into todolist values ( '-' , '" + subjectName + "', '" + datetime + "');");
             sqlDB.close();
             Toast.makeText(getApplicationContext(), "new Time Inserted", Toast.LENGTH_LONG).show();
         }
@@ -97,9 +97,9 @@ public class NormaltodolistActivity extends AppCompatActivity {
                 Toast.makeText(this, "삭제할 일정 이름을 입력하세요", Toast.LENGTH_SHORT).show();
                 return;
             }
-            sqlDB.execSQL("delete from todolist where subject = '일반일정' and todo = '"+ deleteAssignmentName + "';");
+            sqlDB.execSQL("delete from todolist where subject = '-' and todo = '"+ deleteAssignmentName + "';");
             sqlDB.close();
-            Toast.makeText(getApplicationContext(), "new Time Inserted", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "delete " + deleteAssignmentName, Toast.LENGTH_LONG).show();
         }
         catch(SQLiteException e)
         {

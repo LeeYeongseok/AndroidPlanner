@@ -74,7 +74,7 @@ public class SettingActivity extends AppCompatActivity {
             SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
             String subjectName = binding.addSubjectName.getText().toString();
             String professorName = binding.addProfessorName.getText().toString();
-            if(subjectName.length()<1){
+            if(subjectName.length()<1 || subjectName.equals("-")){
                 Toast.makeText(getApplicationContext(), "과목 이름을 입력하세요", Toast.LENGTH_LONG).show();
                 return;
             }
@@ -98,13 +98,23 @@ public class SettingActivity extends AppCompatActivity {
             myDBHelper myHelper = new myDBHelper(this);
             SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
             String subjectName = binding.addTimeSubjectName.getText().toString();
+            Cursor cursor;
+            cursor = sqlDB.rawQuery("select * from "+ Subject_Table + " where subject = '" + subjectName + "';", null);
+            int check = 0;
+            while(cursor.moveToNext()){
+                check += 1;
+            }
+            if(check ==0 ){
+                Toast.makeText(getApplicationContext(), "해당 이름의 과목이 등록되어 있지 않습니다", Toast.LENGTH_LONG).show();
+                return;
+            }
             if(subjectName.length()<1){
                 Toast.makeText(getApplicationContext(), "과목 이름을 입력하세요", Toast.LENGTH_LONG).show();
                 return;
             }
             sqlDB.execSQL("insert into timeTable values ('" + subjectName + "', '" + binding.subjectDaySpinner.getSelectedItem().toString() + "', " + binding.subjectTimeSpinner.getSelectedItem().toString() + ");");
             sqlDB.close();
-            Toast.makeText(getApplicationContext(), "new Time Inserted", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "시간표에 등록되었습니다", Toast.LENGTH_LONG).show();
         }
         catch(SQLiteException e)
         {
@@ -113,38 +123,40 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
 
-    public void searchDB(View view){
-        myDBHelper myHelper = new myDBHelper(this);
-        SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
-        Cursor cursor;
-        Cursor cursor2;
-        cursor = sqlDB.rawQuery("select * from "+ Subject_Table, null);
-        String string1 = "subject" + System.lineSeparator();
-        String string2 = "professor" + System.lineSeparator();
-        while(cursor.moveToNext()){
-            string1 += cursor.getString(0)+ System.lineSeparator();
-            string2 += cursor.getString(1)+ System.lineSeparator();
-        }
-        cursor2 = sqlDB.rawQuery("select * from timeTable", null);
-        while(cursor2.moveToNext()){
-            string1 += cursor2.getString(0)+ System.lineSeparator();
-            string2 += cursor2.getString(1)+ " - ";
-            string2 += cursor2.getString(2)+ System.lineSeparator();
-        }
-        binding.temp1.setText(string1);
-        binding.temp2.setText(string2);
-
-        cursor.close();
-        sqlDB.close();
-
-    }
+//    public void searchDB(View view){
+//        myDBHelper myHelper = new myDBHelper(this);
+//        SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
+//        Cursor cursor;
+//        Cursor cursor2;
+//        cursor = sqlDB.rawQuery("select * from "+ Subject_Table, null);
+//        String string1 = "subject" + System.lineSeparator();
+//        String string2 = "professor" + System.lineSeparator();
+//        while(cursor.moveToNext()){
+//            string1 += cursor.getString(0)+ System.lineSeparator();
+//            string2 += cursor.getString(1)+ System.lineSeparator();
+//        }
+//        cursor2 = sqlDB.rawQuery("select * from timeTable", null);
+//        while(cursor2.moveToNext()){
+//            string1 += cursor2.getString(0)+ System.lineSeparator();
+//            string2 += cursor2.getString(1)+ " - ";
+//            string2 += cursor2.getString(2)+ System.lineSeparator();
+//        }
+//        binding.temp1.setText(string1);
+//        binding.temp2.setText(string2);
+//
+//        cursor.close();
+//        sqlDB.close();
+//
+//    }
 
     public void deleteSubject(View view){
         try {
             myDBHelper myHelper = new myDBHelper(this);
             SQLiteDatabase sqlDB = myHelper.getWritableDatabase();
-            
-            if(binding.deleteSubjectName.getText().toString().length()<1){
+
+            String deleteName = binding.deleteSubjectName.getText().toString();
+
+            if(deleteName.length()<1 || deleteName.equals("-")){
                 Toast.makeText(getApplicationContext(), "삭제할 과목 이름을 입력해주세요", Toast.LENGTH_LONG).show();
                 return;
             }

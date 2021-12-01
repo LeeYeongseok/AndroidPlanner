@@ -28,7 +28,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:onClick="deleteOvertime"
-                android:text="기간이 지난 과제 삭제" />
+                android:text="지난 과제 삭제/ 새로고침" />
 
             <Button
                 android:layout_width="0dp"
